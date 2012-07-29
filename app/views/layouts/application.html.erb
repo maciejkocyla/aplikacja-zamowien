@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
-<head>
-<link rel="shortcut icon" href="klaser.bmp" type="image/jpeg" />  
-<title>Klaser | <%= yield(:title) %></title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-
-<h1><%=yield(:pTitle) %></h1>
-
-<%= yield %>
-
-</body>
+	<head>
+		<link rel="shortcut icon" href="klaser.bmp" type="image/jpeg" />  
+		<title><%= full_title(yield(:title)) %></title>
+	  <%= stylesheet_link_tag    "application", media: "all" %>
+	  <%= javascript_include_tag "application" %>
+	  <%= csrf_meta_tags %>
+		<%= render 'layouts/shim' %>
+	</head>
+	<body>
+		<%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+			<%= render 'layouts/footer'%>
+    </div>
+	</body>
 </html>
