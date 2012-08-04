@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<link rel="shortcut icon" href="klaser.bmp" type="image/jpeg" />  
-		<title><%= full_title(yield(:title)) %></title>
+          <link rel="shortcut icon" href="klaser.bmp" type="image/jpeg" />  
+	  <title><%= full_title(yield(:title)) %></title>
 	  <%= stylesheet_link_tag    "application", media: "all" %>
 	  <%= javascript_include_tag "application" %>
 	  <%= csrf_meta_tags %>
-		<%= render 'layouts/shim' %>
+	  <%= render 'layouts/shim' %>
 	</head>
 	<body>
-		<%= render 'layouts/header' %>
-    <div class="container">
-      <%= yield %>
-			<%= render 'layouts/footer'%>
-    </div>
+	  <%= render 'layouts/header' %>
+          <div class="container">
+	    <% flash.each do |key, value| %>
+	      <div class="alert alert-<%= key %>"><%= value %></div>
+	    <% end %> 
+
+            <%= yield %>
+	    <%= render 'layouts/footer'%>
+	    <%= debug(params) if Rails.env.development? %>
+          </div>
 	</body>
 </html>
