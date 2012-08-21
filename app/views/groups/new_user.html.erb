@@ -1,9 +1,9 @@
 <% provide(:title, 'Sign up') %>
 <h1>Sign up</h1>
-<h2><%= new_user_group.name %></h2>
+
 <div class="row">
   <div class="span6 offset3">
-    <%= form_for(@user) do |f| %>
+    <%= form_for @group, action: new_group_user do |f| %>
       <%= render 'shared/error_messages' %>
 
       <%= f.label :name %>
@@ -17,9 +17,6 @@
 
       <%= f.label :password_confirmation, "Confirmation" %>
       <%= f.password_field :password_confirmation %>
-
-<%= f.label :group_id, "Firma" %>
-<%= f.select :group_id, options_from_collection_for_select(Group.all, 'id', 'name') %>
 
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
     <% end %>

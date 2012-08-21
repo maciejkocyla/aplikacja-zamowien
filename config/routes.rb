@@ -1,7 +1,14 @@
 AplikacjaZamowien::Application.routes.draw do
+#  get "groups/new"
+
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
+  resources :groups, only: [:create, :destroy]
+
+  match 'new_group', 	to: 'groups#new'
   root 			to: 'static_pages#home'
+  match 'join',		to: 'groups#join'
+  match 'new_group_user', to: 'groups#new_user'
   match '/signup',	to: 'users#new'
   match '/signin',	to: 'sessions#new'
   match '/signout',	to: 'sessions#destroy', via: :delete

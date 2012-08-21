@@ -33,4 +33,16 @@ module SessionsHelper
   def store_location
     session[:return_to] = request.url
   end
+
+  def new_user_group
+    @new_user_group ||= Group.last
+  end
+
+  def new_user_group=(group)
+    @new_user_group = group
+  end
+
+  def current_group
+   @current_group = Group.find_by_id(current_user.group_id)
+  end
 end

@@ -17,12 +17,16 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
-    if @user.save
-      flash[:success] = "Rejestracja przebiegla pomyslnie!"
-      redirect_to @user
-    else
-      render 'new'
-    end
+	if @user.save && @user.group.users.count == 1#Group.find_by_id(@user.group_id).users.nil?
+	  @user.toggle!(:admin)
+          flash[:success] = "Rejestracja przebiegla pomyslnie! jestes administratorem"
+          redirect_to @user
+	elsif @user.save && @user.group.users.count > 1
+          flash[:success] = "Rejestracja przebiegla pomyslnie!"
+          redirect_to @user
+        else
+          render 'new'
+        end
   end
  
   def edit

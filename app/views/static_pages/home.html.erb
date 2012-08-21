@@ -1,12 +1,32 @@
 <% provide(:title, 'Home')%>
 <% provide(:pTitle, 'ŻÓŁTY KLASER')%>
-
-<div class="center hero-unit">
+<div class="center">
+<% if !signed_in? %>
   <h1>Zaloguj się !</h1>
-
-  <h2>
-    strona domowa aplikacji zamówień
-  </h2>
 
   <%= link_to "Logowanie", signin_path, class: "btn btn-large btn-primary" %>
 </div>
+<br>
+<br>
+<br>
+<div>
+<h2>Dołącz do firmy: . . . . 
+  <%= link_to "dołącz", join_path, class: "btn" %>
+</h2>
+
+<br>
+
+<h2>Lub utwórz nową: . . .
+  <%= link_to "utwórz", new_group_path, class: "btn" %>
+</h2>
+
+</div>
+
+<% elsif signed_in? %>
+
+<%= link_to "nowe zamówienie", "#", class: "btn btn-large btn-primary"%>
+
+
+<% else %>
+something is wrong
+<% end %>

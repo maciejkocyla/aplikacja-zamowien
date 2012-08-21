@@ -1,0 +1,17 @@
+<% provide(:title, 'Join') %>
+<h1>Wybierz firmę</h1>
+
+<div class="row">
+  <div class="span6 offset3">
+
+    <% Group.all.each do |group| %>
+    <li>
+    <p align="left"><%= group.name %></p>
+    <p align="right"><%= link_to "wybierz", signup_path, method: new_user_group=(group), class: "btn" %></p>
+    </li>
+    <% end %>
+    
+  </div>
+</div>
+
+  
