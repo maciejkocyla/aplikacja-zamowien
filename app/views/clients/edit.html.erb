@@ -1,0 +1,24 @@
+<h1>wprowadź zmiany: </h1>
+<br>
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(@client) do |f| %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+
+      <%= f.label :surname %>
+      <%= f.text_field :surname %>
+
+      <%= f.label :phone, "numer telefonu"%>
+      <%= f.telephone_field :phone %>
+
+      <%= f.label :address %>
+      <%= f.text_area :address %>
+
+
+      <%= f.submit "Zapisz", class: "btn btn-large btn-primary" %>
+    <% end %>
+  </div>
+</div>
+

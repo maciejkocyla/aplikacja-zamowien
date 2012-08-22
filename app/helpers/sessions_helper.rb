@@ -43,6 +43,6 @@ module SessionsHelper
   end
 
   def current_group
-   @current_group = Group.find_by_id(current_user.group_id)
+   @current_group = current_user.group
   end
 end

@@ -11,7 +11,7 @@
 <br>
 <div>
 <h2>Dołącz do firmy: . . . . 
-  <%= link_to "dołącz", join_path, class: "btn" %>
+  <%= link_to "dołącz", signup_path, class: "btn" %>
 </h2>
 
 <br>
@@ -23,9 +23,19 @@
 </div>
 
 <% elsif signed_in? %>
+<h1><%= current_group.name%></h1>
+</br>
+<div center>
+  <ul>
+<%= link_to "nowe zamówienie", "#", class: "btn btn-large btn-menu"%>
+<%= link_to "_lista  zamówień_", "#", class: "btn btn-large btn-menu"%>
+<%= link_to "_lista  produktów_", "#", class: "btn btn-large btn-menu"%>
+<%= link_to "__lista  klientów__", client_index_path, class: "btn btn-large btn-menu"%>
+<%= link_to "____koryto_____", "#", class: "btn btn-large btn-menu"%>
+  </ul>
+</div>
 
-<%= link_to "nowe zamówienie", "#", class: "btn btn-large btn-primary"%>
-
+<div id="main" width=500px float=right><h2>Ostatnie zamówienia</h2></div>
 
 <% else %>
 something is wrong

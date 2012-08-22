@@ -1,10 +1,17 @@
 AplikacjaZamowien::Application.routes.draw do
-#  get "groups/new"
+  get "clients/new"
 
+  get "orders/new"
+
+#  get "groups/new"
+  resources :clients
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :groups, only: [:create, :destroy]
 
+  match 'edit_client',	to: 'clients#edit'
+  match 'new_client',	to: 'clients#new'
+  match 'client_index',	to: 'clients#index' 
   match 'new_group', 	to: 'groups#new'
   root 			to: 'static_pages#home'
   match 'join',		to: 'groups#join'

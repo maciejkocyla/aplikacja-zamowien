@@ -1,0 +1,9 @@
+<li>
+  <%= link_to client.full_name, client %>
+  <% if current_user.admin? %>
+  <p align = "right"><%= link_to "edit", edit_client_path(client)%>  | <%= link_to "delete", client, method: :delete,
+                                  data: { confirm: "You sure?" } %>
+  </p>
+  <% end %>
+</li>
+

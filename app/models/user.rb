@@ -2,7 +2,7 @@ class User < ActiveRecord::Base
 
   belongs_to :group
 
-  attr_accessible :email, :name, :password, :password_confirmation, :group_id
+  attr_accessible :email, :name, :password, :password_confirmation, :group_id,
   has_secure_password
 
   before_save { |user| user.email = email.downcase}
