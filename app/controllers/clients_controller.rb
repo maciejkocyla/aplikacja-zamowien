@@ -1,6 +1,8 @@
 class ClientsController < ApplicationController
   def new
     @client = Client.new
+#    @client = current_group.clients.new
+    @order = @client.orders.new
   end
  
   def show
@@ -40,6 +42,10 @@ class ClientsController < ApplicationController
     else
       render 'edit'
     end
+  end
+
+  def create_new_order
+    @client = Client.new
   end
 
 end

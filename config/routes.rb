@@ -4,11 +4,13 @@ AplikacjaZamowien::Application.routes.draw do
   get "orders/new"
 
 #  get "groups/new"
+  resources :orders
   resources :clients
   resources :users
   resources :sessions, only: [:new, :create, :destroy]
   resources :groups, only: [:create, :destroy]
 
+  match 'create_new_order',	to: 'clients#create_new_order'
   match 'edit_client',	to: 'clients#edit'
   match 'new_client',	to: 'clients#new'
   match 'client_index',	to: 'clients#index' 

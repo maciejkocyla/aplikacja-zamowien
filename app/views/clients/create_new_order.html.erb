@@ -1,6 +1,10 @@
+<h1>Nowe Zamówienie</h1>
+<br>
+<div class="row">
+  <div class="span4 offset1">
 
-<%= form_for @order do |o|%>
-  <%= o.fields_for :client do |f|%>
+    <%= form_for(@client) do |f| %>
+
       <%= f.label :name %>
       <%= f.text_field :name %>
 
@@ -12,6 +16,9 @@
 
       <%= f.label :address %>
       <%= f.text_area :address, :rows => 4 %>
-  <% end %>
-<%= o.submit "gotowe", class: "btn btn-large btn-primary"%>
-<% end %>
+
+
+      <%= f.submit "Zapisz", class: "btn btn-large btn-primary" %>
+    <% end %>
+  <div>
+</div>
