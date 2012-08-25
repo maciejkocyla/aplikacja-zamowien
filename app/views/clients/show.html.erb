@@ -2,3 +2,33 @@
 <h2>tel:<%=@client.phone%></h2>
 <h2>adres:</h2>
 <h2><%=@client.address%></h2>
+
+<br>
+
+<h3>Zamówione podręczniki:</h3>
+<br><br>
+
+<div class="row">
+  <div class="span2">
+  Tytuł:
+  </div>  
+
+  <div class="span1">
+  typ:
+  </div>  
+
+  <div class="span1">
+  Ilość:
+  </div>  
+
+  <div class="span2">
+  Status:
+  </div>  
+</div>
+
+<br><br>
+  <ul class="products">
+    <%= render @client.products%>
+  </ul>
+
+

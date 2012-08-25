@@ -25,18 +25,17 @@
 <% elsif signed_in? %>
 <h1><%= current_group.name%></h1>
 </br>
-<div center>
+<div class="row">
+<div class="span2 offset1">
   <ul>
-<%= link_to "nowe zamówienie", create_new_order_path, class: "btn btn-large btn-menu"%>
-<%= link_to "_lista  zamówień_", "#", class: "btn btn-large btn-menu"%>
-<%= link_to "_lista  produktów_", "#", class: "btn btn-large btn-menu"%>
-<%= link_to "__lista  klientów__", client_index_path, class: "btn btn-large btn-menu"%>
-<%= link_to "____koryto_____", "#", class: "btn btn-large btn-menu"%>
+<%= link_to "nowe zamówienie", create_new_order_path, class: "btn btn-large btn-menu"%><br><br>
+<%= link_to "Lista zamówień", client_index_path, class: "btn btn-large btn-menu"%><br><br>
+<%= link_to "__koryto___", "#", class: "btn btn-large btn-menu"%><br><br>
   </ul>
 </div>
 
-<div id="main" width=500px float=right><h2>Ostatnie zamówienia</h2></div>
-
+<div class="span4 offset4"><h2>Ostatnie zamówienia</h2></div>
+</div>
 <% else %>
 something is wrong
 <% end %>

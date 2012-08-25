@@ -1,4 +1,8 @@
 AplikacjaZamowien::Application.routes.draw do
+  get "products/show"
+
+  get "products/new"
+
   get "clients/new"
 
   get "orders/new"

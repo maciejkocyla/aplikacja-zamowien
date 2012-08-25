@@ -1,7 +1,7 @@
 <h1>Nowe Zamówienie</h1>
 <br>
 <div class="row">
-  <div class="span4 offset1">
+  <div class="span3 offset1">
 
     <%= form_for(@client) do |f| %>
 
@@ -16,9 +16,35 @@
 
       <%= f.label :address %>
       <%= f.text_area :address, :rows => 4 %>
+  </div>
+  <div class="span7 offset1">
+  <p class="fields">
+      <%= f.fields_for :products do |builder|%>
+  
+	<div class="span2">
+	<%= builder.label :name, "podręcznik"%>
+	<%= builder.text_field :name %>
+	</div>
 
 
-      <%= f.submit "Zapisz", class: "btn btn-large btn-primary" %>
-    <% end %>
-  <div>
+	<div class="span2">
+	<%= builder.label :kind, "typ"%>
+	<%= builder.select :kind, options_for_select(["kpl", "sb", "wb"])%>
+	</div>
+
+	<div class="span1">
+	<%= builder.label :quantity, "ilość"%>
+	<%= builder.number_field :quantity%>
+	</div>
+
+	<div class="span1">
+	  <%= builder.hidden_field :_destroy%>
+	  <%= link_to_function "remove", "remove_fields(this)" %>
+	</div>
+  </p>
+
+      <% end %>
+  </div>
 </div>
+     <h2> <%= f.submit "Zapisz", class: "btn btn-large btn-primary" %></h2>
+    <% end %>

@@ -46,6 +46,7 @@ class ClientsController < ApplicationController
 
   def create_new_order
     @client = Client.new
+    8.times {@client.products.build}
   end
 
 end

@@ -1,10 +1,12 @@
 <h1>Lista klientów: </h1>
 <br>
-<%= link_to "dodaj", new_client_path, class: "btn btn-large btn-primary"%>
 <br>
-<%= will_paginate %>
+
+<div class="span6 offset3">
+
+<% will_paginate %>
   <ul class="users">
     <%= render @clients%>
   </ul>
-<%= will_paginate %>
+<% will_paginate %>
 

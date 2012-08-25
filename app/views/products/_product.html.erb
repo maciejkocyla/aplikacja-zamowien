@@ -1,0 +1,39 @@
+
+
+<div class="row">
+
+  <div class="span2">
+    <%= product.name%>
+  </div>
+
+  <div class="span1">
+    <%= product.kind%>
+  </div>
+
+  <div class="span1">
+    <%= product.quantity%>
+  </div>
+
+  <div class="span2">
+    <% if product.completed? %>
+	Zrealizowane |
+    <% else %>
+	Oczekuje |
+    <% end %>
+  </div>
+
+  <div class="span2">
+    <% if product.incoming? %>
+	Zamówione
+    <% else %>
+	Do zamówienia
+    <% end %>
+  </div>
+
+  <div class="span2">
+    <%= product.created_at.strftime('%d:%m:%Y')%>
+  </div>
+
+</div>
+
+<br>
