@@ -45,7 +45,8 @@ class ClientsController < ApplicationController
   end
 
   def create_new_order
-    @client = Client.new
+    @client = Client.where(:id => params[:client_id]).first || Client.new
+    @clients = Client.all
     8.times {@client.products.build}
   end
 
