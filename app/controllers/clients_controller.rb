@@ -10,7 +10,11 @@ class ClientsController < ApplicationController
   end
 
   def index
-    @clients = current_group.clients.paginate(page: params[:page])
+    if params[:search] && @clients = current_group.clients.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"])
+      @clients
+    else
+      @clients = current_group.clients.paginate(page: params[:page])
+    end
   end
 
   def create

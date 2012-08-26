@@ -4,8 +4,16 @@
 <div class="row">
   <div class="span6 offset3">
     <%= form_for(@group) do |f|%>
-    <%= f.label :name, "Nazwij Firmę: "%>
-    <%= f.text_field :name %>
+
+      <%= f.label :name, "Nazwij Firmę: "%>
+      <%= f.text_field :name %>
+
+      <%= f.label :password, "utwórz hasło:"%>
+      <%= f.password_field :password %>
+
+      <%= f.label :password_confirmation, "potwierdź:"%>
+      <%= f.password_field :password_confirmation %>
+
     <%= f.submit "Dalej", class: "btn btn-large btn-primary"%>
     <% end %>
   </div>

@@ -21,6 +21,9 @@
 <%= f.label :group_id, "Firma" %>
 <%= f.select :group_id, options_from_collection_for_select(Group.all, 'id', 'name') %>
 
+<%= f.label :group_password, "autoryzacja firmy"%>
+<%= f.password_field :group_password%>
+
       <%= f.submit "Create my account", class: "btn btn-large btn-primary" %>
     <% end %>
   </div>

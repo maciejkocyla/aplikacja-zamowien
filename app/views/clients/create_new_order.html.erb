@@ -11,11 +11,8 @@
     %>
 
     <%= form_for(@client) do |f| %>
-      <%= f.label :name %>
+      <%= f.label :name, "imię i nazwisko" %>
       <%= f.text_field :name %>
-
-      <%= f.label :surname %>
-      <%= f.text_field :surname %>
 
       <%= f.label :phone, "numer telefonu"%>
       <%= f.telephone_field :phone %>
@@ -23,7 +20,7 @@
       <%= f.label :address %>
       <%= f.text_area :address, :rows => 4 %>
   </div>
-  <div class="span7 offset1">
+  <div class="span6">
   <p class="fields">
       <%= f.fields_for :products do |builder|%>
   
@@ -43,10 +40,6 @@
 	<%= builder.number_field :quantity%>
 	</div>
 
-	<div class="span1">
-	  <%= builder.hidden_field :_destroy%>
-	  <%= link_to_function "remove", "remove_fields(this)" %>
-	</div>
   </p>
 
       <% end %>

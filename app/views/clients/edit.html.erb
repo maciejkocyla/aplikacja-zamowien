@@ -1,24 +1,44 @@
-<h1>wprowadź zmiany: </h1>
+<h1>Nowe Zamówienie</h1>
 <br>
 <div class="row">
-  <div class="span6 offset3">
+  <div class="span3 offset1">
+
+
     <%= form_for(@client) do |f| %>
-
-      <%= f.label :name %>
+      <%= f.label :name, "imię i nazwisko" %>
       <%= f.text_field :name %>
-
-      <%= f.label :surname %>
-      <%= f.text_field :surname %>
 
       <%= f.label :phone, "numer telefonu"%>
       <%= f.telephone_field :phone %>
 
       <%= f.label :address %>
-      <%= f.text_area :address %>
+      <%= f.text_area :address, :rows => 4 %>
+  </div>
+  <div class="span6">
+  <p class="fields">
+      <%= f.fields_for :products do |builder|%>
+
+        <div class="span2">
+        <%= builder.label :name, "podręcznik"%>
+        <%= builder.text_field :name %>
+        </div>
 
 
-      <%= f.submit "Zapisz", class: "btn btn-large btn-primary" %>
-    <% end %>
+        <div class="span2">
+        <%= builder.label :kind, "typ"%>
+        <%= builder.select :kind, options_for_select(["kpl", "sb", "wb"])%>
+        </div>
+
+        <div class="span1">
+        <%= builder.label :quantity, "ilość"%>
+        <%= builder.number_field :quantity%>
+        </div>
+
+  </p>
+
+      <% end %>
   </div>
 </div>
+<h2> <%= f.submit "Zapisz", class: "btn btn-large btn-primary" %></h2>
+    <% end %>
 

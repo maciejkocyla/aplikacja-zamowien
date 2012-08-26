@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
   end
 
   def home
+    @clients = Client.all.map{|client| client}
   end
 
   def help

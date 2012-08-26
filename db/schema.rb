@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120825170631) do
+ActiveRecord::Schema.define(:version => 20120826102520) do
 
   create_table "clients", :force => true do |t|
     t.string   "name"
@@ -26,8 +26,11 @@ ActiveRecord::Schema.define(:version => 20120825170631) do
 
   create_table "groups", :force => true do |t|
     t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",            :null => false
+    t.datetime "updated_at",            :null => false
+    t.string   "password"
+    t.string   "password_confirmation"
+    t.string   "password_digest"
   end
 
   create_table "orders", :force => true do |t|
@@ -58,6 +61,8 @@ ActiveRecord::Schema.define(:version => 20120825170631) do
     t.string   "remember_token"
     t.boolean  "admin",           :default => false
     t.integer  "group_id"
+    t.string   "group_password"
+    t.string   "confirm_access"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

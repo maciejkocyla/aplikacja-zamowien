@@ -2,11 +2,31 @@
 <br>
 <br>
 
-<div class="span6 offset3">
 
+<div class="row">
+<div class="span3 offset4">
+<%= form_tag clients_path, :method => 'get' do %>
+
+  <%= text_field_tag :search, params[:search] %>
+</div>
+<div class="span2">
+  <%= submit_tag "Szukaj", :name => nil%>
+
+<% end %>
+</div>
+</div>
+<p>
+<div class="span8 offset2">
+<% if params[:search] && current_group.clients.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"]) %>
+
+<%= render @clients %>
+<% else %>
 <% will_paginate %>
   <ul class="users">
     <%= render @clients%>
   </ul>
 <% will_paginate %>
+<% end %>
 
+</div>
+</p>

@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(params[:user])
+      if @user.group.authenticate(@user.group_password)
 	if @user.save && @user.group.users.count == 1#Group.find_by_id(@user.group_id).users.nil?
 	  @user.toggle!(:admin)
           flash[:success] = "Rejestracja przebiegla pomyslnie! jestes administratorem"
@@ -25,8 +26,12 @@ class UsersController < ApplicationController
           flash[:success] = "Rejestracja przebiegla pomyslnie!"
           redirect_to @user
         else
+	  flash[:failiure] = "niepoprawne haslo dla grupy"
           render 'new'
         end
+      else 
+	render 'new'
+      end
   end
  
   def edit
