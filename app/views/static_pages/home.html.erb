@@ -10,10 +10,12 @@
 <br>
 <br>
 <div>
+
+<%if !Group.all.empty?%>
 <h2>Dołącz do firmy: . . . . 
   <%= link_to "dołącz", signup_path, class: "btn" %>
 </h2>
-
+<% end %>
 <br>
 
 <h2>Lub utwórz nową: . . .
