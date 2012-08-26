@@ -3,8 +3,14 @@
 <div class="row">
   <div class="span3 offset1">
 
-    <%= form_for(@client) do |f| %>
+    <%= label_tag :client_id, "Klient" %>
+    <%= select_tag :client_id,
+      options_from_collection_for_select(@clients, 'id', 'full_name', @client.id),
+      id: 'new_order_client_selection',
+      prompt: 'Nowy klient...'
+    %>
 
+    <%= form_for(@client) do |f| %>
       <%= f.label :name %>
       <%= f.text_field :name %>
 
