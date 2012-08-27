@@ -15,7 +15,6 @@
 <% end %>
 </div>
 </div>
-<p>
 <div class="span8 offset2">
 <% if params[:search] && current_group.clients.find(:all, :conditions => ['name LIKE ?', "%#{params[:search]}%"]) %>
 
@@ -23,10 +22,9 @@
 <% else %>
 <% will_paginate %>
   <ul class="users">
-    <%= render @clients%>
+    <%= render @clients.reverse%>
   </ul>
 <% will_paginate %>
 <% end %>
 
-</div>
-</p>
+</div></div>

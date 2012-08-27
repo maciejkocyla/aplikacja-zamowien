@@ -14,6 +14,7 @@ AplikacjaZamowien::Application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :groups, only: [:create, :destroy]
 
+  match 'koryto',	to: 'clients#koryto'
   match 'create_new_order',	to: 'clients#create_new_order'
   match 'edit_client',	to: 'clients#edit'
   match 'new_client',	to: 'clients#new'

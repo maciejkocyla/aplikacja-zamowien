@@ -1,7 +1,7 @@
 
 
 <div class="row">
-
+<%if !product.name.empty?%>
   <div class="span2">
     <%= product.name%>
   </div>
@@ -33,7 +33,7 @@
   <div class="span2">
     <%= product.created_at.strftime('%d:%m:%Y')%>
   </div>
-
+<% end %>
 </div>
 
 <br>
