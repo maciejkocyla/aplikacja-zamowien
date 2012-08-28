@@ -7,5 +7,5 @@ class Client < ActiveRecord::Base
     @full_name = String.new("#{self.name} #{self.surname}")
   end
 
-  accepts_nested_attributes_for :products, :allow_destroy => true
+  accepts_nested_attributes_for :products, :reject_if => proc {|a| a['name'].blank?}, :allow_destroy => true
 end

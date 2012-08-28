@@ -3,7 +3,9 @@ class StaticPagesController < ApplicationController
   end
 
   def home
-    @clients = Client.all.map{|client| client}
+    if signed_in?
+      @clients = current_group.clients.all.map{|client| client}
+    end
   end
 
   def help

@@ -1,1 +1,19 @@
 <h1>Koryto</h1>
+
+<div class="row">
+  <div class="span1 offset3">Zamówione</div>
+</div>
+
+<%@clients.reverse.each do |client|%>
+
+  <%= form_for client do |f|%>
+    <h3><%= client.name%></h3>
+    <%= f.fields_for :products do |p| %>
+      <div class="row offset1">
+	<div class="span2"><%= p.text_field :name%></div>
+	<div class="span1"><%= p.number_field :quantity%></div>
+      </div>
+    <% end %>
+  <% end %>
+
+<%end%>

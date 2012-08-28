@@ -54,4 +54,7 @@ class ClientsController < ApplicationController
     8.times {@client.products.build}
   end
 
+  def koryto
+    @clients = current_group.clients
+  end
 end
